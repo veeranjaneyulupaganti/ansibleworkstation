@@ -1,0 +1,7 @@
+---
+- name: debug play
+  hosts: all
+  tasks:
+   - name: debug tasks
+     debug:
+      msg: hurray!ansible module will be work
