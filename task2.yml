@@ -1,11 +1,13 @@
 ---
 - name: task2
-    - name: install tree
-      apt:
-        name: tree
-        state: present 
-    - apt: 
-        name: apache2
-        update_cache: yes
-        state: present
+  apt:
+   name: tree
+   state: present
+- apt: 
+    name: apache2
+    update_cache: yes
+    state: present
+    
+      
+    
         
