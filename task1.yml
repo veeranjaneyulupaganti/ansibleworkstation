@@ -1,8 +1,5 @@
 ---
-- name: thi is copy yml file
-  hosts: all
-  become: yes
-  tasks:
+- name: task1
     - copy:
         src: /etc/passwd
         dest: /tmp
@@ -13,3 +10,5 @@
     - file:
         path: /tmp/ansible
         state: directory
+
+  

@@ -1,8 +1,5 @@
 ---
-- name: thi is copy yml file
-  hosts: all
-  become: yes
-  tasks:
+- name: task2
     - name: install tree
       apt:
         name: tree
