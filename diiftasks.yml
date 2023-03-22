@@ -1,0 +1,28 @@
+---
+- name: diff tasks avalible
+  hosts: all
+  become: yes
+  tasks: 
+    - copy:
+        src: /etc/passwd
+        dest: /tmp
+
+    - file:
+        path: /tmp/ansible/veeranji
+        state: touch
+        mode: 0777
+    
+    - apt: install tree
+          name: tree
+          update_cache: yes
+          state: present
+    
+    - apt: install apache2
+        name: apache2
+        update_cache: yes
+        state: present
+
+    - service: start apache2
+        name: apache2
+        state: statrted
+        enabled: yes
