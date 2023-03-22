@@ -1,0 +1,15 @@
+---
+- name: thi is copy yml file
+  hosts: all
+  become: yes
+  tasks:
+    - copy:
+        src: /etc/passwd
+        dest: /tmp
+        owner: veera
+        group: veera
+        mode: 0777
+
+    - file:
+        path: /tmp/ansible
+        state: directory

@@ -1,0 +1,6 @@
+---
+- name: thi is copy yml file
+  hosts: all
+  become: yes
+    - import_tasks: task1.yml
+    - import_tasks: task2.yml
