@@ -5,6 +5,6 @@
   tasks:
     - name: installing java 1.8
       apt:
-        name: openjdk-1.8.0-jdk
+        name: openjdk-8-jdk
         update_cache: yes
         state: present
