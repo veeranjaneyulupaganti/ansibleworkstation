@@ -2,11 +2,14 @@
 - name: task2
   apt:
    name: tree
-   state: present
+   autoremove: yes
+   state: absent
 - apt: 
     name: apache2
     update_cache: yes
-    state: present
+    autoremove: yes
+    state: absent
+
     
       
     
