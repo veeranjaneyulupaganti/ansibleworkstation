@@ -1,0 +1,25 @@
+---
+- name: this yml file for demo
+  hosts: all
+  become: yes
+  vars:
+    mydir: /tmp/rajesh
+    myfile: /etc/passwd
+    mypkg: -apache2
+           -tree
+           -wget
+  tasks:
+    - name: pass the variables
+      file:
+        name: "{{ mydir }}"
+        state: directory
+    - name: pass the variable is myfile
+      copy:
+        src: "{{ myfile }}"
+        dest: "{{ mydir }}"
+        mode: 0777
+    - name: install pkgs
+      apt:
+        name: "{{ mypkg }}"
+        update_cache: yes
+        state: present
