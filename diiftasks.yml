@@ -15,12 +15,12 @@
     - apt: 
           name: tree
           update_cache: yes
-          state: absent
-          autoremove: yes
+          state: present
+          
     
     - apt: 
         name: apache2
         update_cache: yes
-        state: absent
-        autoremove: yes
+        state: present
+        
 
