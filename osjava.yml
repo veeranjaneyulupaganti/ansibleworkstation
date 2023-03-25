@@ -8,4 +8,4 @@
         name: openjdk-8-jdk
         update_cache: yes
         state: present
-      when: ansible_facts['os_family']=="debian"
+      when: ansible_facts ['os_family'] =="debian"
