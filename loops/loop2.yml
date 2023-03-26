@@ -1,0 +1,27 @@
+---
+- name: demo of loops
+  hosts: all
+  become: yes
+  vars:
+    mydir:
+      - /tmp/veeresh
+      - /tmp/veerendra
+      - /tmp/veeranji
+    myfile:
+      - /etc/passwd
+      - /etc/subgid
+      - /etc/subuid
+  tasks:
+    - name: copy etc to nodes
+      copy:
+        src: "{{ item }}"
+        dest: /tmp/veerendra
+      with_items:
+        - "{{ myfile }}"
+    - name: create directories
+      file:
+        path: "{{ item }}"
+        state: directory
+      with_items:
+        - "{{ myfile }}"
+        
