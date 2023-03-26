@@ -1,0 +1,5 @@
+vars:
+  - myfile: /tmp/veeresh
+  - copy: /etc/passwd
+  - pkg: -apache2
+          -wget

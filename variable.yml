@@ -5,9 +5,9 @@
   vars:
     mydir: /tmp/rajesh
     myfile: /etc/passwd
-    mypkg: -apache2
-           -tree
-           -wget
+    mypkg: - apache2
+           - tree
+           - wget
   tasks:
     - name: pass the variables
       file:

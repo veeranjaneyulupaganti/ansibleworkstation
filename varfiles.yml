@@ -1,0 +1,17 @@
+---
+- name: varsfile
+  hosts: all
+  become: yes
+  var_file:
+    var.yml
+  tasks:
+    - file:
+        name: "{{ myfile }}"
+        state: directory
+    - copy:
+        src: "{{ copy }}"
+        dest: "{{ myfile }}"
+        mode: 0777
+    - apt:
+        name: "{{ pkg }}"
+        state: present
