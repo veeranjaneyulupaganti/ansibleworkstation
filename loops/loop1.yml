@@ -1,0 +1,20 @@
+---
+- name: demo of loops
+  hosts: all
+  become: yes
+  tasks:
+    - name: copy files
+      copy:
+        src: "{{ item }}"
+        dest: /tmp
+      with_items:
+        - /etc/passwd
+        - /etc/shadow
+    - name: create directory
+      file:
+        name: "{{ item }}"
+        state: directory
+      with_items: 
+        - /tmp/veeresh
+        - /tmp/veeranji
+        - /tmp/veerendra
