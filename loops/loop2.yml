@@ -23,5 +23,5 @@
         path: "{{ item }}"
         state: directory
       with_items:
-        - "{{ myfile }}"
+        - "{{ mydir }}"
         
