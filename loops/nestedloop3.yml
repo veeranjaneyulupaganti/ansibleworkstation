@@ -1,0 +1,22 @@
+---
+- name: file copy with nested varfiles
+  hosts: all
+  become: yes
+  vars:
+    myfile:
+      - /etc/passwd
+      - /etc/group
+      - /etc/fstab
+    mydir:
+      - /tmp
+      - /mnt
+      - /opt
+  tasks:
+    - name: copy files multiple
+      copy:
+        src: "{{ item[0] }}"
+        dest: "{{ item[1] }}"
+        mode: 0777
+      with_nested:
+        - "{{ myfile }}"
+        - "{{ mydir }}"

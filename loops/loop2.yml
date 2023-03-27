@@ -15,7 +15,7 @@
     - name: copy etc to nodes
       copy:
         src: "{{ item }}"
-        dest: /tmp/veerendra
+        dest: /tmp
       with_items:
         - "{{ myfile }}"
     - name: create directories

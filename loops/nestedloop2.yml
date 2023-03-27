@@ -1,0 +1,13 @@
+---
+- name: nested loops
+  hosts: all
+  become: yes
+  tasks: 
+  - name: multiple files copied with nested loops
+    copy: 
+      src: "{{ item[0] }}"
+      dest: "{{ item[1] }}"
+      mode: 0777
+    with_nested:
+      - ['/etc/passwd','/etc/group']
+      - /tmp

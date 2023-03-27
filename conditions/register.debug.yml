@@ -1,0 +1,10 @@
+---
+- name: demo on register and debug module
+  hosts: all
+  become: yes
+  tasks:
+    - name: use stat module
+      stat:
+        path: /tmp/myfile.txt
+      register: isexists
+    - debug: var=isexists

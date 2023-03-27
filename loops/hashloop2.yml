@@ -1,0 +1,14 @@
+---
+- name: demo of hash loops
+  hosts: all
+  become: yes
+  tasks: 
+    - name: create users
+      user:
+        name: "{{ item.user_name }}"
+        state: present 
+        group: "{{ item.group_name}}"
+      with_items:
+        - { user_name: 'veeranji', group_name: 'dev-team'}
+        - { user_name: 'veerendra', group_name: 'prod-team'}
+        - { user_name: 'veeresh', group_name: 'test-team'}
