@@ -1,0 +1,14 @@
+---
+- name: demo on handlers
+  hosts: all
+  become: yes
+  tasks: 
+    - lineinfile:
+        path: /etc/ssh/sshd_config
+        line: DenyUser veeranji
+      notify: myhandler
+  handler:
+    - name: myhandler
+      service:
+        name: sshd 
+        state: restarted
