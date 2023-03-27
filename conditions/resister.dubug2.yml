@@ -1,0 +1,13 @@
+---
+- name: service start
+  hosts: all
+  become: yes
+  tasks: 
+    - command: systemctl is-active apache2
+      register: report 
+    - debug: var=report 
+
+    - service:
+        name: apache2
+        state: restarted
+      when: report.rc == 0

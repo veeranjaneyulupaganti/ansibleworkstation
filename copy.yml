@@ -3,18 +3,8 @@
   hosts: all
   become: yes
   tasks:
-    - copy:
-        src: /etc/passwd
-        dest: /tmp
-        owner: veera
-        group: veera
-        mode: 0777
-
-    - file:
-        path: /tmp/ansible
-        state: directory
-    
     - apt:
-        name: tree
+        name: apache2
         update_cache: yes
         state: present
+    - debug: apache2
