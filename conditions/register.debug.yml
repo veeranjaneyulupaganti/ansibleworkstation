@@ -14,3 +14,10 @@
         content: "hiiiii this is veera whos there"
         dest: /tmp/myfile.txt
       when: isexists.stat.exists == true
+
+    - file:
+        path: /tmp/myfile.txt
+        state: touch
+      when: isexists.stat.exists == false
+
+    
