@@ -13,4 +13,4 @@
       copy:
         content: "hiiiii this is veera whos there"
         dest: /tmp/myfile.txt
-      when: isexists.dev == 51713
+      when: isexists.stat.exists == true
